@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Maestro</title>
+</head>
+<body>
+    <header>
+        
+    <div class="menu-bar">
+    <nav>   
+    <ul>
+        <li></li>
+        <li class="active"><a href="#">File</a>
+        </li>
+        <li><a href="#">Ferramentas</a>
+        </li>
+        <li><a href="#">Pacote IntraDay</a>
+        </li>
+        <li><a href="#">Pacote EndOfDay</a>
+        </li>
+        <li><a href="#">Windows</a></li>
+
+    </ul>
+</nav> 
+</div>
+ <h1><img src="resources/ubs-logo-5.png" id="ubslogo" alt="Ubs-Logo"></h1>
+</header>
+    
+<div class="viewMaestro">
+    <div class="container">
+        <form  class="form">
+           <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+              <label for="formGroupExampleInput2">Seguimento</label>
+              <select class="custom-select mr-sm-2" id="selectValue">
+                <option selected>Todos</option>
+                <option value="1">Conta</option>
+                <option value="2">Tipo de Operação</option>
+                <option value="3">Ativo</option>
+              </select>
+            </div>
+            <div class="col-auto my-1">
+              <label for="formGroupExampleInput2">Expotar para:</label>
+              <select class="custom-select mr-sm-2" id="fomatFile">
+                <option selected>xlsx</option>
+                <option value="1">csv</option>
+                <option value="2">PDF</option>
+              </select>
+            </div>
+            
+          </div>
+          <button type="button" class="btn btn-primary" id="btnAgrupar">Importar</button>
+          <button type="button" class="btn btn-success" id="btnCreateFile">Exportar</button>
+  
+        </form>
+        <div class="viewTrades">
+
+        </div>
+</div>
+
+<script src="js/app/Controllers/TradesController.js"></script>
+<script src="js/app/Helpers/HelpFormat.js"></script>
+<script src="js/app/Helpers/DateHelper.js"></script>
+<script src="js/app//Helpers/xlsx.full.min.js"></script>
+<script src="js/app/Helpers/FileSaver.js"></script>
+<script src="js/app/View/ViewBase.js"></script>
+<script src="js/app/View/ViewTrades.js"></script>
+<script src="js/app/Models/ListTrades.js"></script>
+<script src="js/app/Models/Trades.js"></script>
+<script src="js/app/Service/HttpService.js"></script>
+<script src="js/app/Service/ServiceTrades.js"></script>
+
+<script>
+
+
+(function(){
+debugger;
+
+var btn = document.getElementById('btnAgrupar');
+var btnFile = document.getElementById('btnCreateFile');
+
+var select  = document.getElementById('selectValue');
+var formatFile  = document.getElementById('fomatFile');
+
+   var tradesView  = new TradesController();
+
+   function importTrades(){
+     debugger;
+
+     let value = select.options[select.selectedIndex].text;
+
+    tradesView.viewConsulta(value);
+
+   }
+
+   function createFile(){
+
+     let format = formatFile.options[formatFile.selectedIndex].text;
+     let value = select.options[select.selectedIndex].text;
+
+     tradesView.exportFile(format, value);
+
+   }
+
+    btn.addEventListener("click", importTrades, false); 
+    btnFile.addEventListener("click", createFile, false); 
+})();
+
+
+</script>
+</body>
+</html>

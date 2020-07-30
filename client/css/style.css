@@ -1,0 +1,131 @@
+*
+{  
+       padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+}
+
+header
+{
+    background-color: rgb(180, 180, 184);
+}
+
+#ubslogo
+{
+    margin-left: 100px;
+    width: 83px;
+    height: 30px;
+    float: none;
+}
+
+body{
+
+    background-size: cover;
+    background-color: azure;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu-bar{
+
+    text-align: center;
+    position: absolute;
+   margin-left: 80px;
+   
+}
+
+
+
+.menu-bar ul
+{
+    padding-top: 5px;
+    display: inline-flex;
+    list-style: none;
+    color: azure;
+}
+
+.menu-bar ul li
+{
+    width: 130px;
+    margin: 10px;  
+}
+
+.menu-bar ul li a
+{
+    text-decoration: none;
+    color: azure;
+}
+
+.active, .menu-bar > ul li
+{
+   margin-top: 18px;
+   font-size: 15px;
+   border-radius: 3px;
+}
+
+.sub-menu-1
+{
+    display: none;
+}
+
+.menu-bar ul li:hover .sub-menu-1
+{
+    display: block;
+    position: absolute;
+    background: rgb(180, 180, 184);
+    /*margin-top: 8px;*/
+   /*margin-left: -15px;*/
+    
+    
+}
+/*
+.menu-bar ul li:hover .sub-menu-1 ul li:hover
+{
+    background: rgb(232, 233, 235);  
+    
+}*/
+
+
+
+.menu-bar ul li:hover .sub-menu-1 ul
+{
+    display: block;
+   margin: 10px;
+}
+
+.menu-bar ul li:hover .sub-menu-1 ul li
+{
+   /* width: 150px;*/
+   /* padding: 10px;*/
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+}
+
+.menu-bar ul li:hover .sub-menu-1 ul li:last-child
+{
+    border-bottom: none;
+}
+
+.fa-angle-right
+{
+    float: right;
+}
+
+.sub-menu-2{
+    display: none;
+}
+
+.hover-me:hover .sub-menu-2{
+
+     position: absolute;
+     display: block;
+     margin-top: -18px;
+     margin-left: 130px;
+     background: rgb(193, 193, 207);
+}
+
+.table-intraday{
+
+    margin: 50px;
+}
